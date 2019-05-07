@@ -22,9 +22,9 @@ class S3FileStorePlugin(plugins.SingletonPlugin):
         # Certain config options must exists for the plugin to work. Raise an
         # exception if they're missing.
         missing_config = "{0} is not configured. Please amend your .ini file."
-        config_options = (
+        config_options = [
             'ckanext.s3filestore.aws_bucket_name'
-        )
+        ]
         for option in config_options:
             if not config.get(option, None):
                 raise RuntimeError(missing_config.format(option))
